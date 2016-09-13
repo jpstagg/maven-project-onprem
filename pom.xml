@@ -23,28 +23,44 @@
 	<build>
 		<plugins>
 		<plugin>
-    <groupId>org.mule.tools.maven</groupId>
-    <artifactId>mule-maven-plugin</artifactId>
-    <version>2.0</version>
+    <groupId>org.mule.tools</groupId>
+    <artifactId>muleesb-maven-plugin</artifactId>
     <configuration>
-        <deploymentType>cloudhub</deploymentType>
-        <muleVersion>3.7.3</muleVersion>
-        <username>${uid}</username>
-        <password>${pwd}</password>
-	 <workerType>Micro</workerType>
-        <redeploy>true</redeploy>
-        <environment>Production</environment>
-    </configuration>
-    <executions>
-        <execution>
-            <id>deploy</id>
-            <phase>deploy</phase>
-            <goals>
-                <goal>deploy</goal>
-            </goals>
-        </execution>
-    </executions>
+        <muleDistribution>
+            <groupId>com.mulesoft.muleesb.distributions</groupId>
+            <artifactId>mule-ce-distribution-standalone</artifactId>
+            <version>${mule.version}</version>
+            <type>tar.gz</type>
+        </muleDistribution>
+        <applications>
+            <application>${app.1.location}</application>
+            <application>${app.2.location}</application>
+        </applications>
+        </configuration>
 </plugin>
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>2.0</version>
+				<configuration>
+					<deploymentType>cloudhub</deploymentType>
+					<muleVersion>3.7.3</muleVersion>
+					<username>${uid}</username>
+					<password>${pwd}</password>
+					<workerType>Micro</workerType>
+					<redeploy>true</redeploy>
+					<environment>Production</environment>
+				</configuration>
+				<executions>
+					<execution>
+						<id>deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-app-maven-plugin</artifactId>
