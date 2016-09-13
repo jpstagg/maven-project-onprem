@@ -3,7 +3,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mulesoft.training</groupId>
-	<artifactId>maven-project-jpstagg</artifactId>
+	<artifactId>maven-project-onprem-jpstagg</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule</packaging>
 	<name>Mule maven-project Application</name>
@@ -12,8 +12,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<mule.version>3.8.1</mule.version>
-		<mule.tools.version>1.2</mule.tools.version>
+		<mule.version>3.8.0</mule.version>
+		<mule.tools.version>1.0</mule.tools.version>
 		<derby.version>10.12.1.1</derby.version>
 		<activemq.version>5.14.0</activemq.version>
 		<uid>jpstagg01</uid>
@@ -22,22 +22,6 @@
 
 	<build>
 		<plugins>
-		<plugin>
-    <groupId>org.mule.tools</groupId>
-    <artifactId>muleesb-maven-plugin</artifactId>
-    <configuration>
-        <muleDistribution>
-            <groupId>com.mulesoft.muleesb.distributions</groupId>
-            <artifactId>mule-ce-distribution-standalone</artifactId>
-            <version>${mule.version}</version>
-            <type>tar.gz</type>
-        </muleDistribution>
-        <applications>
-            <application>${app.1.location}</application>
-            <application>${app.2.location}</application>
-        </applications>
-        </configuration>
-</plugin>
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
@@ -110,15 +94,8 @@
 	<dependencies>
 		<!-- Xml configuration -->
 		<dependency>
-			<groupId>com.mulesoft.muleesb</groupId>
-			<artifactId>mule-core-ee</artifactId>
-			<version>${mule.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- Xml configuration -->
-		<dependency>
-			<groupId>com.mulesoft.muleesb.modules</groupId>
-			<artifactId>mule-module-spring-config-ee</artifactId>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-module-spring-config</artifactId>
 			<version>${mule.version}</version>
 			<scope>provided</scope>
 		</dependency>
@@ -136,14 +113,14 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.mulesoft.muleesb.transports</groupId>
-			<artifactId>mule-transport-jdbc-ee</artifactId>
+			<groupId>org.mule.transports</groupId>
+			<artifactId>mule-transport-jdbc</artifactId>
 			<version>${mule.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.mulesoft.muleesb.transports</groupId>
-			<artifactId>mule-transport-jms-ee</artifactId>
+			<groupId>org.mule.transports</groupId>
+			<artifactId>mule-transport-jms</artifactId>
 			<version>${mule.version}</version>
 			<scope>provided</scope>
 		</dependency>
@@ -200,12 +177,6 @@
 		<dependency>
 			<groupId>org.mule.modules</groupId>
 			<artifactId>mule-module-db</artifactId>
-			<version>${mule.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mule.transports</groupId>
-			<artifactId>mule-transport-jms</artifactId>
 			<version>${mule.version}</version>
 			<scope>provided</scope>
 		</dependency>
