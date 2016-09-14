@@ -28,8 +28,7 @@
 				<version>2.0</version>
 				<configuration>
 					<deploymentType>standalone</deploymentType>
-					<muleVersion>3.8.0</muleVersion>
-					<environment>Production</environment>
+					<muleHome>/home/jpstagg/Desktop/mule/mule-standalone-3.8.0/</muleHome>
 				</configuration>
 				<executions>
 					<execution>
