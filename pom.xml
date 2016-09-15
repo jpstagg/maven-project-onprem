@@ -28,15 +28,35 @@
 				<version>2.1</version>
 				<configuration>
 					<deploymentType>standalone</deploymentType>
-					<!-- <muleHome>/home/jpstagg/Desktop/mule/mule-standalone-3.8.0/</muleHome> --> 
-					<muleVersion>3.8.0</muleVersion>
+					<muleHome>/home/jpstagg/Desktop/mule/mule-standalone-3.8.0/</muleHome>
+					<!-- <muleVersion>3.8.0</muleVersion> -->
 				</configuration>
 				<executions>
 					<execution>
 						<id>deploy</id>
-						<phase>deploy</phase>
+						<phase>pre-integration-test</phase>
 						<goals>
 							<goal>deploy</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>undeploy</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>undeploy</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>integration-test</id>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
 						</goals>
 					</execution>
 				</executions>
